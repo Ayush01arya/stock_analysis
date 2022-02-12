@@ -38,7 +38,11 @@ if st.button('CHECK'):
     data["Date"] = data.index
     data = data[["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"]]
     data.reset_index(drop=True, inplace=True)
-    print(data.head())
+    #print(data.head())
+    a=data.head()
+    df = pd.DataFrame(a, columns=(['Date','Open','High','Low','Close','Adj Close','Volume']))
+
+    st.table(df)
     import plotly.graph_objects as go
 
     figure = go.Figure(data=[go.Candlestick(x=data["Date"],
